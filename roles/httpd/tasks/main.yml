@@ -1,0 +1,13 @@
+---
+- name: Install "{{ package }}"
+  yum:
+    name: "{{ package }}"
+    state: latest
+
+- name: Copy configuration files
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  notify:
+    - Start "{{ service }}"
+    - Enable firewalld port

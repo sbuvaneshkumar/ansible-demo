@@ -1,0 +1,13 @@
+---
+- name: Start "{{ service }}"
+  service:
+    name: "{{ service }}"
+    state: started
+    enabled: true
+
+- name: Enable firewalld port
+  firewalld:
+    port: "{{ port }}/tcp"
+    state: enabled
+    immediate: true
+    permanent: true
