@@ -7,7 +7,7 @@
 
 - name: Enable firewalld port
   firewalld:
-    port: "{{ port }}/tcp"
+    port: "{{ port_number }}/tcp"
     state: enabled
     immediate: true
     permanent: true
